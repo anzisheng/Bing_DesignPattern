@@ -32,10 +32,10 @@ public:
     }
     void doSomething()
     {
-        Truck truck;
-        truck.deliver();
-        Ship ship;
-        ship.deliver();
+       Transport* truck = new Truck;
+        truck->deliver();
+       Transport* ship = new Ship;
+        ship->deliver();
     }
 };
 
