@@ -1,10 +1,15 @@
 #include <iostream>
 #include <QCoreApplication>
-
+class Transport
+{
+public:
+    virtual ~Transport(){}
+    virtual void deliver() const = 0;
+};
 class Truck
 {
 public:
-    void deliver()
+    void deliver() const
     {
         std::cout << "the truck is driverring \n";
     }
@@ -12,7 +17,7 @@ public:
 class Ship
 {
 public:
-    void deliver()
+    void deliver()const
     {
         std::cout << "the ship is delivering \n";
     }
