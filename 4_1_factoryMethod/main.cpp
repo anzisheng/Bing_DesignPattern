@@ -9,6 +9,14 @@ public:
         std::cout << "the truck is driverring \n";
     }
 };
+class Ship
+{
+public:
+    void deliver()
+    {
+        std::cout << "the ship is delivering \n";
+    }
+};
 
 class Logistics
 {
@@ -21,6 +29,8 @@ public:
     {
         Truck truck;
         truck.deliver();
+        Ship ship;
+        ship.deliver();
     }
 };
 
