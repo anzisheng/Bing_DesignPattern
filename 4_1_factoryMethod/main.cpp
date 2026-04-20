@@ -6,18 +6,18 @@ public:
     virtual ~Transport(){}
     virtual void deliver() const = 0;
 };
-class Truck
+class Truck :public Transport
 {
 public:
-    void deliver() const
+    void deliver() const override
     {
         std::cout << "the truck is driverring \n";
     }
 };
-class Ship
+class Ship :public Transport
 {
 public:
-    void deliver()const
+    void deliver()const override
     {
         std::cout << "the ship is delivering \n";
     }
