@@ -30,14 +30,51 @@ public:
     {
 
     }
+    //ºËÐÄ
+    virtual Transport * factoryMethod() = 0;
     void doSomething()
     {
-       Transport* truck = new Truck;
+       Transport* truck = factoryMethod();
         truck->deliver();
-       Transport* ship = new Ship;
+        delete truck;
+       /*Transport* ship = factoryMethod();
         ship->deliver();
+        delete ship;*/
     }
 };
+class TruckLigistics : public Logistics
+{
+public:
+    ~TruckLigistics
+    ()
+    {
+	}
+    Transport * factoryMethod()  override
+    {
+		Transport* truck= new Truck();
+		return truck  ;
+        //ship->deliver();
+        //delete ship;
+
+        return truck;
+	}
+};
+class ShipLogistics:public Logistics
+{
+public:
+    ShipLogistics() {};
+    ~ShipLogistics(){}// ://public Logistics();
+    Transport * factoryMethod() override
+    {
+		Transport* ship = new Ship();
+        return ship;
+
+
+    }
+private:
+
+};
+
 
 int main(int argc, char *argv[])
 {
@@ -53,7 +90,9 @@ int main(int argc, char *argv[])
 
     // If you do not need a running Qt event loop, remove the call
     // to QCoreApplication::exec() or use the Non-Qt Plain C++ Application template.
-    Logistics obj;
+   TruckLigistics obj;
     obj.doSomething();
+	ShipLogistics obj2;
+	obj2.doSomething();
     return QCoreApplication::exec();
 }
